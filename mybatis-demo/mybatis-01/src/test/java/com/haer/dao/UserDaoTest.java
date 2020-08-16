@@ -12,15 +12,24 @@ public class UserDaoTest {
     @Test
     public void test() {
         //获取sqlSession对象
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
-//        //getMapper
-//        UserDao userDao = sqlSession.getMapper(UserDao.class);
-//        List<User> userList = userDao.selectUserList();
-//        for (User user : userList) {
-//            System.out.println(user);
-//        }
-//
-//        //关闭sqlSession
-//        sqlSession.close();
+        SqlSession sqlSession = null;
+
+        try {
+            sqlSession = MybatisUtils.getSqlSession();
+            //方式一：getMapper
+            UserDao userDao = sqlSession.getMapper(UserDao.class);
+            List<User> userList = userDao.selectUserList();
+
+            //方式二：
+            //List<User> userList = sqlSession.selectList("com.haer.dao.UserDao.selectUserList");
+
+            for (User user : userList) {
+                System.out.println(user);
+            }
+        } finally {
+            //关闭sqlSession(必须要关闭)
+            sqlSession.close();
+        }
+
     }
 }

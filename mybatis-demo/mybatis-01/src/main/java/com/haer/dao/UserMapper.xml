@@ -2,9 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace="绑定一个对应的Dao/Mapper接口"-->
 <mapper namespace="com.haer.dao.UserDao">
     <!--    查询语句-->
     <select id="selectUserList" resultType="com.haer.pojo.User">
-    select * from user where id = #{id}
-  </select>
+       select * from mybatis.user
+    </select>
 </mapper>

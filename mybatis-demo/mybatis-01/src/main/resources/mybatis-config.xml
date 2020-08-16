@@ -9,13 +9,15 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--             useSSL=false    -->
                 <property name="url"
-                          value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UFT-8"/>
+                          value="jdbc:mysql://localhost:3306/mybatis?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>
+    <!--    每一个Mapper.xml文件都需要在Mybatis核心配置文件中注册-->
     <mappers>
         <mapper resource="com/haer/dao/UserMapper.xml"/>
     </mappers>
