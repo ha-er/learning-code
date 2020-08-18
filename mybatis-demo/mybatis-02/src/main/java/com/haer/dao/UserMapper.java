@@ -5,7 +5,7 @@ import com.haer.pojo.User;
 import java.util.List;
 import java.util.Map;
 
-public interface UserDao {
+public interface UserMapper {
     //查询全部
     List<User> selectUserList();
 
@@ -20,13 +20,4 @@ public interface UserDao {
 
     //删除
     int deleteUser(int id);
-
-    //map新增
-    int insertMap(Map<String, Object> map);
-
-    //模糊查询
-    List<User> selectUserLikeName(String name);
-
-    //批量删除
-    int deleteUsers(int[] ids);
 }
