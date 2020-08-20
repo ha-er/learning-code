@@ -2,10 +2,8 @@ package com.haer.pojo;
 
 import org.apache.ibatis.type.Alias;
 
-import java.io.Serializable;
-
 @Alias("user")
-public class User implements Serializable {
+public class User {
     private int id;
     private String name;
     private String pwd;

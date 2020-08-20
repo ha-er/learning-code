@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haer.dao.StudentMapper">
+
+    <resultMap id="StudentResultMap2" type="Student">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <association property="teacher" javaType="Teacher">
+            <result column="tname" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="selectStudentList2" resultMap="StudentResultMap2">
+       select s.id,s.name,t.name tname from student s, teacher t
+       where s.tid = t.id
+    </select>
+
+    <resultMap id="StudentResultMap" type="Student">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+    <select id="selectStudentList" resultMap="StudentResultMap">
+       select id,name,tid from student
+    </select>
+    <select id="getTeacher" resultType="Teacher">
+       select id,name from teacher where id = #{tid}
+    </select>
+</mapper>

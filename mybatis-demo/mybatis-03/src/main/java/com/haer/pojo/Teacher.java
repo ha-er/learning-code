@@ -1,22 +1,19 @@
 package com.haer.pojo;
 
-import org.apache.ibatis.type.Alias;
+import java.util.List;
 
-import java.io.Serializable;
-
-@Alias("user")
-public class User implements Serializable {
+public class Teacher {
     private int id;
     private String name;
-    private String pwd;
+    private List<Student> studentList;
 
-    public User() {
+    public Teacher() {
     }
 
-    public User(int id, String name, String pwd) {
+    public Teacher(int id, String name, List<Student> studentList) {
         this.id = id;
         this.name = name;
-        this.pwd = pwd;
+        this.studentList = studentList;
     }
 
     public int getId() {
@@ -35,20 +32,20 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getPwd() {
-        return pwd;
+    public List<Student> getStudentList() {
+        return studentList;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Teacher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", pwd='" + pwd + '\'' +
+                ", studentList=" + studentList +
                 '}';
     }
 }
