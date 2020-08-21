@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="beans2.xml"/>
+    <!-- 使用Spring创建对象，在Spring中这些都称为Bean
+
+    java：
+      类型 变量名 = new 类型()；
+      Hello helli = new Hello();
+
+    xml
+      id = 变量名
+      class = new 的对象
+      property 相当于给对象中的属性设置一个值
+    -->
+    <bean id="hello" class="com.haer.pojo.Hello">
+        <property name="str" value="Spring"/>
+    </bean>
+    <!--    无参构造创建对象-->
+    <!--    <bean id="user" class="com.haer.pojo.User">-->
+    <!--        <property name="name" value="哈儿"/>-->
+    <!--    </bean>-->
+    <!--    有参构造创建对象-->
+    <!--    1.下标赋值-->
+    <!--    <bean id="user" class="com.haer.pojo.User">-->
+    <!--        <constructor-arg index="0" value="思思"/>-->
+    <!--    </bean>-->
+    <!--    2.参数类型-->
+    <!--    <bean id="user" class="com.haer.pojo.User">-->
+    <!--        <constructor-arg type="java.lang.String" value="思思"/>-->
+    <!--    </bean>-->
+    <!--    3.直接通过参数名-->
+    <bean id="user" class="com.haer.pojo.User" name="sisi">
+        <constructor-arg name="name" value="思思"/>
+    </bean>
+
+
+    <alias name="user" alias="haer"/>
+
+</beans>
