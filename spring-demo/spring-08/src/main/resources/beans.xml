@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--    注册bean-->
+    <bean id="userService" class="com.haer.service.UserServiceImpl"/>
+    <bean id="log" class="com.haer.log.Log"/>
+    <bean id="afterLog" class="com.haer.log.AfterLog"/>
+
+    <!--    方式一：使用原生Spring API接口-->
+    <!--   配置aop：需要aop的约束-->
+    <!--    <aop:config>-->
+    <!--&lt;!&ndash;        切入点:expression:表达式，execution(要执行的位置）&ndash;&gt;-->
+    <!--        <aop:pointcut id="poincut" expression="execution(* com.haer.service.UserServiceImpl.*(..))"/>-->
+
+    <!--&lt;!&ndash;        执行环绕增加&ndash;&gt;-->
+    <!--        <aop:advisor advice-ref="log" pointcut-ref="poincut"/>-->
+    <!--        <aop:advisor advice-ref="afterLog" pointcut-ref="poincut"/>-->
+    <!--    </aop:config>-->
+
+    <!--    <bean id="diy" class="com.haer.diy.DiyPoincut"/>-->
+    <!--    -->
+    <!--    <aop:config>-->
+    <!--        <aop:aspect ref="diy">-->
+    <!--&lt;!&ndash;            切入点&ndash;&gt;-->
+    <!--            <aop:pointcut id="point" expression="execution(* com.haer.service.UserServiceImpl.*(..))"/>-->
+    <!--&lt;!&ndash;            通知&ndash;&gt;-->
+    <!--            <aop:before method="before" pointcut-ref="point"/>-->
+    <!--            <aop:after method="after" pointcut-ref="point"/>-->
+    <!--        </aop:aspect>-->
+    <!--    </aop:config>-->
+
+    <!--    方式三：注解实现-->
+    <bean id="annotationPointcut" class="com.haer.diy.AnnotationPointcut"/>
+    <!--    开启注解支持 proxy-target-class="false"默认false为JDK实现 true时为cglib实现-->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+
+</beans>
