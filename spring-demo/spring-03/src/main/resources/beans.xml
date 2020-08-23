@@ -4,8 +4,54 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="address" class="com.haer.pojo.Address"/>
+
     <bean id="student" class="com.haer.pojo.Student">
+        <!-- 普通方式注入，value -->
         <property name="name" value="哈儿"/>
+        <!--        bean注入，ref-->
+        <property name="address" ref="address"/>
+        <!--        数组注入 -->
+        <property name="books">
+            <array>
+                <value>哈儿</value>
+                <value>思思</value>
+                <value>娇娇</value>
+            </array>
+        </property>
+        <!--        list-->
+        <property name="hobbys">
+            <list>
+                <value>学习</value>
+                <value>减肥</value>
+                <value>敲代码</value>
+            </list>
+        </property>
+        <!--        map-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="4444444"/>
+                <entry key="银行卡" value="2123213"/>
+            </map>
+        </property>
+        <!--        set-->
+        <property name="games">
+            <set>
+                <value>LOL</value>
+                <value>王者</value>
+            </set>
+        </property>
+        <!--        null-->
+        <property name="wife">
+            <null/>
+        </property>
+        <!--        properties-->
+        <property name="properties">
+            <props>
+                <prop key="学号">20200823</prop>
+                <prop key="姓名">哈儿</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>
