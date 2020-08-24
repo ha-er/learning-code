@@ -11,7 +11,7 @@ public class Client {
         //真实角色
         UserServiceImpl userService = new UserServiceImpl();
 
-        //代理角色不存在
+        //代理角色现在不存在
         ProxyInvacationHandler pih = new ProxyInvacationHandler();
 
         //设置要代理的对象
