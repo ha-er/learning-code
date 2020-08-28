@@ -1,0 +1,13 @@
+teacher:
+  name: 哈儿
+  age: 3
+  happy: true
+  birth: 2000/03/20
+  maps: {key1: value1,key2: value2}
+  list:
+    - code
+    - girl
+    - money
+  student:
+    name: 娇娇
+    age: 20
