@@ -12,7 +12,6 @@
         <module>reflect-demo</module>
         <module>mybatis-demo</module>
         <module>spring-demo</module>
-        <module>springmvc-01-servlet</module>
         <module>springmvc-demo</module>
         <module>base</module>
     </modules>
