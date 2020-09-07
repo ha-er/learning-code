@@ -1,4 +1,4 @@
-package com.haer.string;
+package com.haer.classstring;
 
 public class StringTest02 {
     public static void main(String[] args) {
